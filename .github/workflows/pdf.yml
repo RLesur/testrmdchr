@@ -12,7 +12,10 @@ jobs:
           pandoc-version: '2.7.3' 
       - uses: r-lib/actions/setup-r@master
       - name: Install dependencies
-        run: Rscript -e "install.packages('remotes')" -e "remotes::install_deps(dependencies = TRUE)"
+        run: |
+          install.packages('remotes')
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
       - name: pdf
         run: pagedown::chrome_print('test.Rmd', extra_args = c('--disable-gpu', '--no-sandbox'), verbose = 1)
-        shell: Rscript
+        shell: Rscript {0}
