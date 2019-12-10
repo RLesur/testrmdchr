@@ -3,7 +3,7 @@ on: push
 name: pdf
 
 jobs:
-  pdf:
+  ubuntu:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -11,6 +11,9 @@ jobs:
         with:
           pandoc-version: '2.7.3' 
       - uses: r-lib/actions/setup-r@master
+      - name: chmod
+        if: runner.os == 'Linux'
+        run: echo "Hello"
       - name: Install dependencies
         run: |
           install.packages('remotes')
