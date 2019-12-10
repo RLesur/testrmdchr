@@ -4,12 +4,11 @@ name: pdf
 
 jobs:
   pdf:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-r@master
-      - uses: ./.github/actions/setup-chromium
       - name: Install dependencies
         run: Rscript -e "install.packages('remotes')" -e "remotes::install_deps(dependencies = TRUE)"
       - name: pdf
-        run: Rscript -e "pagedown::find_chrome()"
+        run: Rscript -e "pagedown::chrome_print('test.Rmd', verbose = 1)"
