@@ -6,16 +6,17 @@ jobs:
   ubuntu:
     runs-on: macos-latest
     steps:
+      - name: chmod
+        if: runner.os == 'macOS'
+        run: |
+          wget https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+          open googlechrome.dmg
+          sudo cp -r /Volumes/Google\ Chrome/Google\ Chrome.app /Applications/
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
         with:
           pandoc-version: '2.7.3' 
       - uses: r-lib/actions/setup-r@master
-      - name: chmod
-        if: runner.os == 'macOS'
-        run: |
-          brew install brew-cask
-          brew cask install google-chrome
       - name: Install dependencies
         run: |
           install.packages('remotes')
