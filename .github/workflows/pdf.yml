@@ -14,4 +14,5 @@ jobs:
       - name: Install dependencies
         run: Rscript -e "install.packages('remotes')" -e "remotes::install_deps(dependencies = TRUE)"
       - name: pdf
-        run: Rscript -e "pagedown::chrome_print('test.Rmd', verbose = 1)"
+        run: pagedown::chrome_print('test.Rmd', extra_args = c('--disable-gpu', '--no-sandbox'), verbose = 1)
+        shell: Rscript
