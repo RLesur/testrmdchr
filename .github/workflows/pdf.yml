@@ -4,7 +4,7 @@ name: pdf
 
 jobs:
   ubuntu:
-    runs-on: ubuntu-latest
+    runs-on: [macos-latest, ubuntu-latest, windows-latest]
     steps:
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
@@ -12,7 +12,7 @@ jobs:
           pandoc-version: '2.7.3' 
       - uses: r-lib/actions/setup-r@master
       - name: chmod
-        if: runner.os == 'Linux'
+        if: runner.os == 'macOS'
         run: echo "Hello"
       - name: Install dependencies
         run: |
