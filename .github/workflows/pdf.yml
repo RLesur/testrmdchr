@@ -4,7 +4,7 @@ name: pdf
 
 jobs:
   ubuntu:
-    runs-on: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
