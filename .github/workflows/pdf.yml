@@ -13,7 +13,9 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: chmod
         if: runner.os == 'macOS'
-        run: sudo chmod 755 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+        run: |
+          brew install brew-cask
+          brew cask install google-chrome
       - name: Install dependencies
         run: |
           install.packages('remotes')
