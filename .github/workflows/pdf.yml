@@ -10,7 +10,8 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-          sudo open ./googlechrome.dmg
+          pwd
+          sudo hdiutil attach googlechrome.dmg
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
         with:
