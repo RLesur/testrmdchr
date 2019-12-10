@@ -9,9 +9,8 @@ jobs:
       - name: chmod
         if: runner.os == 'macOS'
         run: |
-          wget https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
-          open googlechrome.dmg
-          sudo cp -r /Volumes/Google\ Chrome/Google\ Chrome.app /Applications/
+          wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+          sudo open ./googlechrome.dmg
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
         with:
