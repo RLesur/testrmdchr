@@ -9,8 +9,7 @@ jobs:
       - name: chmod
         if: runner.os == 'macOS'
         run: |
-          wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg -P /tmp
-          sudo open /tmp/googlechrome.dmg
+          brew cask install google-chrome
           pwd
           echo "ls Volumes"
           ls /Volumes
