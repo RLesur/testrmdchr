@@ -9,10 +9,13 @@ jobs:
       - name: chmod
         if: runner.os == 'macOS'
         run: |
-          wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+          wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg -P /tmp
+          open /tmp/googlechrome.dmg
           pwd
-          ls /
-          sudo hdiutil attach googlechrome.dmg
+          echo "ls Volumes"
+          ls /Volumes
+          ehco "ls Applications"
+          ls /Applications
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
         with:
