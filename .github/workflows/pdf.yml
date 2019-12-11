@@ -6,16 +6,11 @@ jobs:
   ubuntu:
     runs-on: macos-latest
     steps:
-      - name: chmod
+      - name: Install Chrome (only on macOS)
         if: runner.os == 'macOS'
         run: |
           brew update
           brew cask install google-chrome
-          pwd
-          echo "ls Volumes"
-          ls /Volumes
-          echo "ls Applications"
-          ls /Applications
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
         with:
