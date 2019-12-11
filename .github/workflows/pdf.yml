@@ -10,7 +10,7 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg -P /tmp
-          open /tmp/googlechrome.dmg
+          sudo open /tmp/googlechrome.dmg
           pwd
           echo "ls Volumes"
           ls /Volumes
