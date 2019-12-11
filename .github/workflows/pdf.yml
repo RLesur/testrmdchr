@@ -9,6 +9,7 @@ jobs:
       - name: chmod
         if: runner.os == 'macOS'
         run: |
+          brew update
           brew cask install google-chrome
           pwd
           echo "ls Volumes"
