@@ -11,6 +11,7 @@ jobs:
         run: |
           wget -q https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
           pwd
+          ls /
           sudo hdiutil attach googlechrome.dmg
       - uses: actions/checkout@v1
       - uses: r-lib/actions/setup-pandoc@v1
